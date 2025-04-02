@@ -23,6 +23,7 @@ typedef struct Buyer_List_Node{
     char* buyer_id;
     double total_energy;
     tr_node* transaction_tree;
+    int height;
     struct Buyer_List_Node* left;
     struct Buyer_List_Node* right;
 }b_list_node;
@@ -37,6 +38,7 @@ typedef struct Seller_List_Node{
     double total_energy;
     tr_node* transaction_tree;
     loyal_buyers* buyers_list;
+    int height;
     struct Seller_List_Node* left;
     struct Seller_List_Node* right;
 }s_list_node;
@@ -45,6 +47,7 @@ typedef struct buyer_seller_node{
     char* buyer_id;
     char* seller_id;
     int no_of_transactions;
+    int height;
     struct buyer_seller_node* left;
     struct buyer_seller_node* right;
 }bs_node;
@@ -59,8 +62,9 @@ tr_node* leftRotate(tr_node* x);
 
 tr_node* insertTransaction(tr_node* root, char* transaction_id, char* buyer_id, char* seller_id, float energy_bought, float price);
 
-tr_node* insertBuyer(b_list_node* root, char* buyer_id, double total_energy, tr_node* transaction_tree);
+b_list_node* insertBuyer(b_list_node* root, char* buyer_id, double total_energy, tr_node* transaction_tree);
 
+s_list_node* insertSeller(s_list_node* root, char* seller_id, double total_energy, tr_node* transaction_tree, loyal_buyers* buyers_list);
 
 
 
