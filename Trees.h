@@ -41,6 +41,14 @@ typedef struct Seller_List_Node{
     struct Seller_List_Node* right;
 }s_list_node;
 
+typedef struct buyer_seller_node{
+    char* buyer_id;
+    char* seller_id;
+    int no_of_transactions;
+    struct buyer_seller_node* left;
+    struct buyer_seller_node* right;
+}bs_node;
+
 int getHeight(tr_node* root);
 
 int getBalance(tr_node* root);
